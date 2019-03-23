@@ -59,6 +59,11 @@ def add_noise(sigma, grad_list): #adding noise, notice sigma=FLAGS.sigma*FLAGS.c
     return grad_list
 
 def logging(info, mode='a'):
+    try:
+        os.mkdir('logs')
+    except:
+        pass    
+
     f=open('logs/log%d.txt'%FLAGS.experiment_id, mode)
     f.write(info)
     f.close()
